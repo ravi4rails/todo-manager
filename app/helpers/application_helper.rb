@@ -10,4 +10,8 @@ module ApplicationHelper
     end
   end
 
+  def todo_type_list
+    TodoType.all.map {|tt| [tt.name, tt.id]}
+  end
+
 end

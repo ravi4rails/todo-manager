@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+  has_many :todos
+
   validates :first_name, :last_name, presence: true
   validates :contact, :username, presence: true, uniqueness: true
 

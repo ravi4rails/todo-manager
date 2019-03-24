@@ -4,8 +4,10 @@
     <p class="lead">This is a simple plateform for you to manage your activities by creating TODOs. This is very simple to start we just need you to sign in here and then you can manage your list of TODOs.</p>
     <hr class="my-4">
     <p>We never share your activities with any other so feel free to create your wishlist here and track them easily..</p>
-    <p class="lead">
-      <a class="btn btn-primary btn-lg rounded-0 shadow" href="#" role="button">Register Now</a>
-    </p>
+    <% unless user_signed_in? %>
+      <p class="lead">
+        <%= link_to "Register Now", new_user_registration_path, class: "btn btn-primary btn-lg rounded-0 shadow" %>
+      </p>
+    <% end %>
   </div>
 </div>

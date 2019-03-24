@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+TodoType.create([
+  {name: "Family"}, 
+  {name: "Work"}, 
+  {name: "Personal"}, 
+  {name: "Social"}, 
+  {name: "Educative"}, 
+  {name: "Sports"}, 
+  {name: "Hobby"}
+])

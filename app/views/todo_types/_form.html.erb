@@ -1,0 +1,12 @@
+<%= form_with(model: todo_type, local: true) do |form| %>
+  <%= render "partials/form_errors", object: todo_type %>
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control rounded-0" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary rounded-0" %>
+    <%= link_to 'Back', todo_types_path, class: "btn btn-outline-primary rounded-0" %>
+  </div>
+<% end %>
