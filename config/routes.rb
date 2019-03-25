@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
   
-  resources :todos
-  resources :todo_types
+  root "home#index"
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
     passwords: 'users/passwords'
   }
-  root "home#index"
+  
+  resources :todos do 
+    collection do
+      patch :sort
+    end
+  end
+  resources :todo_types
 
 end

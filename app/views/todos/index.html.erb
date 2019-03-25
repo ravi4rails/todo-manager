@@ -2,35 +2,13 @@
   <div class="row">
     <div class="col-12">
       <h1>Listing Todos</h1>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Due date</th>
-            <th>Status</th>
-            <th>Type</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @todos.each do |todo| %>
-            <tr>
-              <td><%= todo.title %></td>
-              <td><%= todo.due_date %></td>
-              <td><%= todo.status.capitalize %></td>
-              <td><%= todo.todo_type.try(:name) %></td>
-              <td>
-                <%= link_to 'Show', todo, class: "btn btn-primary rounded-0" %>
-                <%= link_to 'Edit', edit_todo_path(todo), class: "btn btn-secondary rounded-0" %>
-                <%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger rounded-0" %>    
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+      <div id="todo_list" class="list-group" data-url="<%= sort_todos_path %>">
+        <% @todos.each do |todo| %>
+          <%= link_to todo.title, todo, class: "list-group-item list-group-item-action", id: dom_id(todo) %>
+        <% end %>
+      </div>
       <br>
       <%= link_to 'New Todo', new_todo_path, class: "btn btn-primary rounded-0" %>
     </div>
   </div>
 </div>
-

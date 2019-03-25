@@ -1,9 +1,11 @@
 class TodosController < ApplicationController
   before_action :set_todo, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token, only: [:sort]
+
 
   def index
-    @todos = current_user.todos
+    @todos = current_user.todos.order('priority ASC')
   end
 
   def show;end
@@ -46,6 +48,13 @@ class TodosController < ApplicationController
       format.html { redirect_to todos_url, notice: 'Todo was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def sort
+    params[:todo].each_with_index do |id, index|
+      current_user.todos.where(id: id).update_all(priority: index + 1)
+    end
+    head :ok
   end
 
   private

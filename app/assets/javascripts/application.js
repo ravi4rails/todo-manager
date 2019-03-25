@@ -15,5 +15,6 @@
 //= require popper
 //= require bootstrap
 //= require jquery-ui 
+//= require todo_sort
 //= require activestorage
 //= require turbolinks
