@@ -1,14 +1,20 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h1>Listing Todos</h1>
+      <div class="card shadow rounded-0 mb-3 mt-4">
+        <div class="card-body">
+          <h1>Listing Todos</h1>
+          <p class="lead">Manage your todo's order according to your choice. Just drag and drop them into any preferred order you want.</p>
+        </div>
+      </div>
       <div id="todo_list" class="list-group" data-url="<%= sort_todos_path %>">
         <% @todos.each do |todo| %>
           <%= link_to todo.title, todo, class: "list-group-item list-group-item-action mt-1", id: dom_id(todo) %>
         <% end %>
       </div>
-      <br>
-      <%= link_to 'New Todo', new_todo_path, class: "btn btn-primary rounded-0" %>
+      <div class="mt-5 mb-4">
+        <%= link_to 'New Todo', new_todo_path, class: "btn btn-primary rounded-0" %>
+      </div>
     </div>
   </div>
 </div>
