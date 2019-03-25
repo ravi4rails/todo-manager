@@ -2,7 +2,7 @@
   color:#fff !important;
 }
 .footer {
-  position: fixed;
+  /*position: fixed;*/
   left: 0;
   bottom: 0;
   width: 100%;
@@ -26,4 +26,13 @@
     font-size:25px;
     font-weight:bold;
   }
+}
+.font-30 {
+  font-size:30px !important;
+}
+.fa-lg-custom {
+  font-size:100px;color:#007bff;
+}
+.font-40 {
+  font-size:40px;
 }

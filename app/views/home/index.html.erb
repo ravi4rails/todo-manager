@@ -11,3 +11,53 @@
     <% end %>
   </div>
 </div>
+<div class="container">
+  <section class="mt-5 mb-5">
+    <% if user_signed_in? %>
+      <% if current_user.todos.present? %>
+        <div class="text-center pb-5">
+          <h1 class="">Your state</h1>
+          <div class="row mt-5 mb-5">
+            <div class="col-md-10 mx-md-auto">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card shadow rounded-0">
+                    <div class="card-body">
+                      <h5 class="mt-3 font-30">Total Todos</h5>
+                      <i class="fas fa-list-alt fa-lg-custom"></i>
+                      <h5 class="mt-3 font-40"><%= current_user.todos.count %></h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card shadow rounded-0">
+                    <div class="card-body">
+                      <h5 class="mt-3 font-30">Completed</h5>
+                      <i class="fas fa-check fa-lg-custom"></i>
+                      <h5 class="mt-3 font-40"><%= current_user.todos.count %></h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card shadow rounded-0">
+                    <div class="card-body">
+                      <h5 class="mt-3 font-30">Pending</h5>
+                      <i class="fas fa-history fa-lg-custom"></i>
+                      <h5 class="mt-3 font-40"><%= current_user.todos.count %></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <%= link_to "Create My Next Todo", new_todo_path, class: "btn btn-success rounded-0 shadow mt-3 mb-4 btn-lg" %>
+        </div>
+      <% else %>
+        <div class="text-center pb-5">
+          <h4 class="font-weight-bold">You don't have created any todo yet. Click the button below to create your first todo.</h4>
+          <%= link_to "Create My First Todo", new_todo_path, class: "btn btn-success rounded-0 shadow mt-3 mb-4" %>
+        </div>
+      <% end %>
+    <% end %>
+  </section>
+</div>

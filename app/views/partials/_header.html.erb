@@ -20,6 +20,9 @@
             <%= link_to "javascript:void(0)", class: "dropdown-item" do %>
               <i class="fas fa-user-tie"></i> <%= current_user.username %>
             <% end %>
+            <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
+              <i class="fas fa-pencil-alt"></i> Edit Account
+            <% end %>
             <%= link_to destroy_user_session_path, class: "dropdown-item", method: :delete do %>
               <i class="fas fa-sign-out-alt"></i> Sign Out
             <% end %>
