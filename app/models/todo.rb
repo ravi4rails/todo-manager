@@ -8,6 +8,14 @@ class Todo < ApplicationRecord
 
   before_create :default_status
 
+  def done?
+    self.status == 'done'
+  end
+
+  def status_badge
+    self.done? ? "success" : "danger"
+  end
+
   private 
 
     def default_status

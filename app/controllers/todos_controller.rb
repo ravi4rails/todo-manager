@@ -1,8 +1,7 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: [:show, :edit, :update, :destroy]
+  before_action :set_todo, only: [:show, :edit, :update, :destroy, :mark_as_done]
   before_action :authenticate_user!
   skip_before_action :verify_authenticity_token, only: [:sort]
-
 
   def index
     @todos = current_user.todos.order('priority ASC')
@@ -55,6 +54,13 @@ class TodosController < ApplicationController
       current_user.todos.where(id: id).update_all(priority: index + 1)
     end
     head :ok
+  end
+
+  def mark_as_done
+    @todo.update(status: 'done')
+    respond_to do |format|
+      format.html { redirect_to @todo, notice: 'Item has been marked as done successfully.' }
+    end
   end
 
   private

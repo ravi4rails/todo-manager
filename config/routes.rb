@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     collection do
       patch :sort
     end
+    member do 
+      patch :mark_as_done
+    end
   end
   resources :todo_types
 
