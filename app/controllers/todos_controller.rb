@@ -59,7 +59,7 @@ class TodosController < ApplicationController
   def mark_as_done
     @todo.update(status: 'done')
     respond_to do |format|
-      format.html { redirect_to @todo, notice: 'Item has been marked as done successfully.' }
+      format.js
     end
   end
 

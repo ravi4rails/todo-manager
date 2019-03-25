@@ -5,28 +5,30 @@
         <div class="col-md-6">
           <div class="card shadow rounded-0">
             <div class="card-body">
-              <p>
-                <strong>Title:</strong>
-                <%= @todo.title %>
-              </p>
-              <p>
-                <strong>Due date:</strong>
-                <%= @todo.due_date %>
-              </p>
-              <p>
-                <strong>Status:</strong>
-                <span class="badge badge-<%= @todo.status_badge %>"><%= @todo.status.capitalize %></span>
-              </p>
-              <p>
-                <strong>Todo type:</strong>
-                <%= @todo.todo_type.try(:name) %>
-              </p>
-              <%= link_to 'Edit', edit_todo_path(@todo), class: "btn btn-secondary rounded-0" %> 
-              <%= link_to 'Delete', todo_path(@todo), class: "btn btn-danger rounded-0", method: :delete, data: {confirm: "Are you sure?"} %> 
-              <%= link_to 'Back', todos_path, class: "btn btn-outline-primary rounded-0" %>  
-              <% unless @todo.done? %>
-                <%= link_to "Mark As Done", mark_as_done_todo_path(@todo), class: "btn btn-success rounded-0 shadow", method: :patch %>
-              <% end %>
+              <div id="todo_detail">
+                <p>
+                  <strong>Title:</strong>
+                  <%= @todo.title %>
+                </p>
+                <p>
+                  <strong>Due date:</strong>
+                  <%= @todo.due_date %>
+                </p>
+                <p>
+                  <strong>Status:</strong>
+                  <span class="badge badge-<%= @todo.status_badge %>"><%= @todo.status.capitalize %></span>
+                </p>
+                <p>
+                  <strong>Todo type:</strong>
+                  <%= @todo.todo_type.try(:name) %>
+                </p>
+                <%= link_to 'Edit', edit_todo_path(@todo), class: "btn btn-secondary rounded-0" %> 
+                <%= link_to 'Delete', todo_path(@todo), class: "btn btn-danger rounded-0", method: :delete, data: {confirm: "Are you sure?"} %> 
+                <%= link_to 'Back', todos_path, class: "btn btn-outline-primary rounded-0" %>  
+                <% unless @todo.done? %>
+                  <%= link_to "Mark As Done", mark_as_done_todo_path(@todo), class: "btn btn-success rounded-0 shadow", method: :patch, remote: true %>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
@@ -34,4 +36,3 @@
     </div>
   </div>
 </div>
-
