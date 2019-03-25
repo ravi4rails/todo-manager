@@ -9,4 +9,17 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
+
+  def all_todos
+    self.todos
+  end       
+
+  def pending_todos
+    self.todos.where(status: 'pending')
+  end
+
+  def completed_todos
+    self.todos.where(status: 'done')
+  end
+  
 end
